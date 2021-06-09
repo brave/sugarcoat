@@ -34,7 +34,7 @@
     "fast-glob": "^3.2.4",
     "fs-extra": "^9.0.1",
     "graphology": "^0.17.1",
-    "graphology-graphml": "^0.2.0",
+    "graphology-graphml": "^0.3.1",
     "handlebars": "^4.7.6",
     "iterare": "^1.2.1",
     "jsonlint": "^1.6.3",
