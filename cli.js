@@ -229,7 +229,7 @@ am(async () => {
 
         target.rewriteSrc = rewriteData.src;
 
-        const rewriteSrcFilePath = path.join(codeDirPath, `${target.name}.js.0`);
+        const rewriteSrcFilePath = path.join(codeDirPath, `sugarcoat-${target.name}.js`);
         const rewriteSrcMapFilePath = `${rewriteSrcFilePath}.map`;
         return [
           (async () => {
@@ -258,7 +258,7 @@ am(async () => {
   } else if (shouldBundle) {
     await Promise.all(
       targets.map(async target => {
-        const rewriteSrcFilePath = path.join(codeDirPath, `${target.name}.js.0`);
+        const rewriteSrcFilePath = path.join(codeDirPath, `sugarcoat-${target.name}.js`);
         if (!(await fs.pathExists(rewriteSrcFilePath))) {
           return;
         }
