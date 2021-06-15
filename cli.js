@@ -231,6 +231,8 @@ am(async () => {
 
         const rewriteSrcFilePath = path.join(codeDirPath, `sugarcoat-${target.name}.js`);
         const rewriteSrcMapFilePath = `${rewriteSrcFilePath}.map`;
+        target.sugarcoated = true;
+
         return [
           (async () => {
             try {
@@ -273,6 +275,7 @@ am(async () => {
           );
         }
         target.rewriteSrc = rewriteSrc;
+        target.sugarcoated = true;
       })
     );
   }
@@ -281,11 +284,13 @@ am(async () => {
     const { rules: rulesFilePath, resources: resourcesFilePath } = bundleConfig;
 
     const bundle = await require('./bundle')(
-      targets.map(target => ({
-        name: `sugarcoat-${target.name}`,
-        src: target.src,
-        patterns: target.patterns,
-      }))
+      targets
+        .filter(target => target.sugarcoated) // only want to print rules for sugarcoated targets
+        .map(target => ({
+          name: `sugarcoat-${target.name}`,
+          src: target.src,
+          patterns: target.patterns,
+        }))
     );
 
     await Promise.all([
