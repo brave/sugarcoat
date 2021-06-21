@@ -570,7 +570,12 @@ const readDirToMap = async (dirPath, ext, f) => {
 };
 
 const rewrite = (mocksMap, recipesMap, scriptName, scriptSrc, trace, policy = null) => {
-  const script = esprima.parseScript(scriptSrc, { loc: true, range: true, source: scriptName });
+  let script;
+  try {
+    script = esprima.parseScript(scriptSrc, { loc: true, range: true, source: scriptName });
+  } catch {
+    return null;
+  }
 
   const accesses = trace
     .map(entry => {
