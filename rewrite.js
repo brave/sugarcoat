@@ -574,6 +574,7 @@ const rewrite = (mocksMap, recipesMap, scriptName, scriptSrc, trace, policy = nu
   try {
     script = esprima.parseScript(scriptSrc, { loc: true, range: true, source: scriptName });
   } catch {
+    console.log(`Parse error for script ${scriptName}! Ignoring...`)
     return null;
   }
 
