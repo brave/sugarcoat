@@ -1,5 +1,7 @@
 # SugarCoat
 
+This is used in the [SugarCoat pipeline](https://github.com/brave-experiments/sugarcoat-pipeline) to generate privacy-preserving versions of tracking scripts.
+
 ## Development
 
 [pnpm](https://pnpm.js.org/) is recommended for managing a JavaScript development environment for
