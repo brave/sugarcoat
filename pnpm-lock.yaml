@@ -13,9 +13,10 @@ specifiers:
   fs-extra: ^9.0.1
   graphology: ^0.17.1
   graphology-graphml: ^0.5.2
+  graphology-types: ^0.24.7
   handlebars: ^4.7.6
   iterare: ^1.2.1
-  jsonlint: ^1.6.3
+  jsonlint: git+https://github.com/zaach/jsonlint.git
   line-column: ^1.0.2
   lodash.groupby: ^4.6.0
   lodash.sortby: ^4.7.0
@@ -37,10 +38,11 @@ dependencies:
   fast-glob: 3.2.12
   fs-extra: 9.1.0
   graphology: 0.17.1
-  graphology-graphml: 0.5.2
+  graphology-graphml: 0.5.2_graphology-types@0.24.7
+  graphology-types: 0.24.7
   handlebars: 4.7.7
   iterare: 1.2.1
-  jsonlint: 1.6.3
+  jsonlint: github.com/zaach/jsonlint/f6624322e6ba7c2c6e7848729f7309873329e7cb
   line-column: 1.0.2
   lodash.groupby: 4.6.0
   lodash.sortby: 4.7.0
@@ -73,6 +75,20 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       chalk: 2.4.2
       js-tokens: 4.0.0
+    dev: false
+
+  /@gerhobbelt/linewrap/0.2.2-3:
+    resolution: {integrity: sha512-u2eUbXgNtqckBI4gxds/uiUNoytT+qIqpePmVDI5isW8A18uB3Qz1P+UxAHgFafGOZWJNrpR0IKnZhl7QhaUng==}
+    engines: {node: '>=4.0'}
+    dev: false
+
+  /@gerhobbelt/nomnom/1.8.4-31:
+    resolution: {integrity: sha512-Ih0OLfetFcT5KFB4VruQcosf6RB56rYDEpSs12OWyXpF22BFs+ovX/epghaN8tTlOSCHpPmjwOx4va8Dzz/B9w==}
+    engines: {node: '>=4.0'}
+    dependencies:
+      '@gerhobbelt/linewrap': 0.2.2-3
+      chalk: 4.1.0
+      exit: 0.1.2
     dev: false
 
   /@humanwhocodes/momoa/2.0.4:
@@ -128,11 +144,6 @@ packages:
 
   /am/1.1.0:
     resolution: {integrity: sha512-WVZqlRJFdPVvm+5AD4BG9OpPnPoO5Ua9/CRnyB/+oHdshP2yWMX80BjoKadjXkVi30bi3gcZaLmnfUkQaTRcew==}
-    dev: false
-
-  /ansi-styles/1.0.0:
-    resolution: {integrity: sha512-3iF4FIKdxaVYT3JqQuY3Wat/T2t7TRbbQ94Fu50ZUCbLy4TFbTzr90NOHQodQkNqmeEGCw8WbeP78WNi6SKYUA==}
-    engines: {node: '>=0.8.0'}
     dev: false
 
   /ansi-styles/3.2.1:
@@ -207,15 +218,6 @@ packages:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
     dev: false
 
-  /chalk/0.4.0:
-    resolution: {integrity: sha512-sQfYDlfv2DGVtjdoQqxS0cEZDroyG8h6TamA6rvxwlrU5BaSLDx9xhatBYl2pxZ7gmpNaPFVwBtdGdu5rQ+tYQ==}
-    engines: {node: '>=0.8.0'}
-    dependencies:
-      ansi-styles: 1.0.0
-      has-color: 0.1.7
-      strip-ansi: 0.1.1
-    dev: false
-
   /chalk/2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
     engines: {node: '>=4'}
@@ -223,6 +225,14 @@ packages:
       ansi-styles: 3.2.1
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
+    dev: false
+
+  /chalk/4.1.0:
+    resolution: {integrity: sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==}
+    engines: {node: '>=10'}
+    dependencies:
+      ansi-styles: 4.3.0
+      supports-color: 7.2.0
     dev: false
 
   /chalk/4.1.2:
@@ -375,6 +385,11 @@ packages:
     engines: {node: '>=0.8.x'}
     dev: false
 
+  /exit/0.1.2:
+    resolution: {integrity: sha512-Zk/eNKV2zbjpKzrsQ+n1G6poVbErQxJ0LBOJXaKZ1EViLzH+hrLu9cdXI4zw9dBQJslwBEpbQ2P1oS7nDxs6jQ==}
+    engines: {node: '>= 0.8.0'}
+    dev: false
+
   /extract-zip/1.7.0:
     resolution: {integrity: sha512-xoh5G1W/PB0/27lXgMQyIhP5DSY/LhoCsOyZgb+6iMmRtCwVBo55uKaMoEYrDCKQhWvqEip5ZPKAc6eFNyf/MA==}
     hasBin: true
@@ -470,33 +485,40 @@ packages:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
     dev: false
 
-  /graphology-graphml/0.5.2:
+  /graphology-graphml/0.5.2_graphology-types@0.24.7:
     resolution: {integrity: sha512-Z9m3amTxszia2dYdtdHJI9gHcbw2gSyCTWRmgsj2dAXMj8VwcoEEWnFPYykqMFw1sIuoQviZueadyE3H02wKOQ==}
     dependencies:
       '@xmldom/xmldom': 0.8.7
-      graphology-operators: 1.6.0
-      graphology-utils: 2.5.2
+      graphology-operators: 1.6.0_graphology-types@0.24.7
+      graphology-utils: 2.5.2_graphology-types@0.24.7
       xml-writer: 1.7.0
     transitivePeerDependencies:
       - graphology-types
     dev: false
 
-  /graphology-operators/1.6.0:
+  /graphology-operators/1.6.0_graphology-types@0.24.7:
     resolution: {integrity: sha512-yfnVNsFd6plBw7r6Td4luGlNoQn9MKI56EZ/NcFcRmvu/D1R8eWHjpipNUdBjl5MVV8iSW8e/XuY8YsjRDnLoA==}
     peerDependencies:
       graphology-types: '>=0.20.0'
     dependencies:
-      graphology-utils: 2.5.2
+      graphology-types: 0.24.7
+      graphology-utils: 2.5.2_graphology-types@0.24.7
     dev: false
 
   /graphology-types/0.16.0:
     resolution: {integrity: sha512-iBGyPuMHlmHdXaB0cu/vllkPJ3myf063ZICY90zDxYQrJYZ3Dm4h2+dLM3Kof+CVJzM4HGg96ZFZ8HS6C7LgCQ==}
     dev: false
 
-  /graphology-utils/2.5.2:
+  /graphology-types/0.24.7:
+    resolution: {integrity: sha512-tdcqOOpwArNjEr0gNQKCXwaNCWnQJrog14nJNQPeemcLnXQUUGrsCWpWkVKt46zLjcS6/KGoayeJfHHyPDlvwA==}
+    dev: false
+
+  /graphology-utils/2.5.2_graphology-types@0.24.7:
     resolution: {integrity: sha512-ckHg8MXrXJkOARk56ZaSCM1g1Wihe2d6iTmz1enGOz4W/l831MBCKSayeFQfowgF8wd+PQ4rlch/56Vs/VZLDQ==}
     peerDependencies:
       graphology-types: '>=0.23.0'
+    dependencies:
+      graphology-types: 0.24.7
     dev: false
 
   /graphology/0.17.1:
@@ -518,11 +540,6 @@ packages:
       wordwrap: 1.0.0
     optionalDependencies:
       uglify-js: 3.17.4
-    dev: false
-
-  /has-color/0.1.7:
-    resolution: {integrity: sha512-kaNz5OTAYYmt646Hkqw50/qyxP2vFnTVu5AQ1Zmk22Kk5+4Qx6BpO8+u7IKsML5fOsFk0ZT0AcCJNYwcvaLBvw==}
-    engines: {node: '>=0.10.0'}
     dev: false
 
   /has-flag/3.0.0:
@@ -603,15 +620,6 @@ packages:
       universalify: 2.0.0
     optionalDependencies:
       graceful-fs: 4.2.11
-    dev: false
-
-  /jsonlint/1.6.3:
-    resolution: {integrity: sha512-jMVTMzP+7gU/IyC6hvKyWpUU8tmTkK5b3BPNuMI9U8Sit+YAWLlZwB6Y6YrdCxfg2kNz05p3XY3Bmm4m26Nv3A==}
-    engines: {node: '>= 0.6'}
-    hasBin: true
-    dependencies:
-      JSV: 4.0.2
-      nomnom: 1.8.1
     dev: false
 
   /jsonpointer/5.0.1:
@@ -697,14 +705,6 @@ packages:
 
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
-    dev: false
-
-  /nomnom/1.8.1:
-    resolution: {integrity: sha512-5s0JxqhDx9/rksG2BTMVN1enjWSvPidpoSgViZU4ZXULyTe+7jxcCRLB6f42Z0l1xYJpleCBtSyY6Lwg3uu5CQ==}
-    deprecated: Package no longer supported. Contact support@npmjs.com for more info.
-    dependencies:
-      chalk: 0.4.0
-      underscore: 1.6.0
     dev: false
 
   /obliterator/1.6.1:
@@ -853,12 +853,6 @@ packages:
       safe-buffer: 5.1.2
     dev: false
 
-  /strip-ansi/0.1.1:
-    resolution: {integrity: sha512-behete+3uqxecWlDAm5lmskaSaISA+ThQ4oNNBDTBJt0x2ppR6IPqfZNuj6BLaLJ/Sji4TPZlcRyOis8wXQTLg==}
-    engines: {node: '>=0.8.0'}
-    hasBin: true
-    dev: false
-
   /supports-color/5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
     engines: {node: '>=4'}
@@ -922,10 +916,6 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
-
-  /underscore/1.6.0:
-    resolution: {integrity: sha512-z4o1fvKUojIWh9XuaVLUDdf86RQiq13AC1dmHbTpoyuu+bquHms76v16CjycCbec87J7z0k//SiQVk0sMdFmpQ==}
-    dev: false
 
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
@@ -992,4 +982,15 @@ packages:
     dependencies:
       buffer-crc32: 0.2.13
       fd-slicer: 1.1.0
+    dev: false
+
+  github.com/zaach/jsonlint/f6624322e6ba7c2c6e7848729f7309873329e7cb:
+    resolution: {tarball: https://codeload.github.com/zaach/jsonlint/tar.gz/f6624322e6ba7c2c6e7848729f7309873329e7cb}
+    name: jsonlint
+    version: 1.6.3
+    engines: {node: '>= 0.6'}
+    hasBin: true
+    dependencies:
+      '@gerhobbelt/nomnom': 1.8.4-31
+      JSV: 4.0.2
     dev: false
