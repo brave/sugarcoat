@@ -1,16 +1,16 @@
 {
   "name": "sugarcoat",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "author": "Michael Smith <michael@spinda.net> (https://spinda.net)",
   "license": "MPL-2.0",
-  "homepage": "https://github.com/spinda/sugarcoat#readme",
+  "homepage": "https://github.com/brave/sugarcoat#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spinda/sugarcoat.git"
+    "url": "git+https://github.com/brave/sugarcoat.git"
   },
   "bugs": {
-    "url": "https://github.com/spinda/sugarcoat/issues"
+    "url": "https://github.com/brave/sugarcoat/issues"
   },
   "keywords": [],
   "bin": {
