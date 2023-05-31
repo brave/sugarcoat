@@ -131,7 +131,7 @@ am(async () => {
       graphFilePaths.map(async graphFilePath => {
         try {
           const graphSrc = await fs.readFile(graphFilePath, { encoding: 'utf8' });
-          return graphml.parse(MultiDirectedGraph, graphSrc);
+          return graphml.parse(MultiDirectedGraph, graphSrc, { addMissingNodes: true });
         } catch (err) {
           throw new VError(err, `Failed to load Page Graph file ${JSON.stringify(graphFilePath)}`);
         }
